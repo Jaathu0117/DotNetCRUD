@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnTest = new System.Windows.Forms.Button();
-            this.btn = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
             this.btnGetAllStudents = new System.Windows.Forms.Button();
             this.stuTable = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -56,34 +56,34 @@
             // btnTest
             // 
             this.btnTest.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.Location = new System.Drawing.Point(1140, 52);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTest.Location = new System.Drawing.Point(570, 27);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(236, 48);
+            this.btnTest.Size = new System.Drawing.Size(118, 25);
             this.btnTest.TabIndex = 0;
             this.btnTest.Text = "Test Connection";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // btn
+            // btnNew
             // 
-            this.btn.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn.Location = new System.Drawing.Point(564, 52);
-            this.btn.Margin = new System.Windows.Forms.Padding(4);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(276, 48);
-            this.btn.TabIndex = 0;
-            this.btn.Text = "Student";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btnInsert_Click);
+            this.btnNew.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Location = new System.Drawing.Point(282, 27);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(138, 25);
+            this.btnNew.TabIndex = 0;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnGetAllStudents
             // 
             this.btnGetAllStudents.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetAllStudents.Location = new System.Drawing.Point(28, 52);
-            this.btnGetAllStudents.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGetAllStudents.Location = new System.Drawing.Point(14, 27);
+            this.btnGetAllStudents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGetAllStudents.Name = "btnGetAllStudents";
-            this.btnGetAllStudents.Size = new System.Drawing.Size(236, 48);
+            this.btnGetAllStudents.Size = new System.Drawing.Size(118, 25);
             this.btnGetAllStudents.TabIndex = 0;
             this.btnGetAllStudents.Text = "Get All Students";
             this.btnGetAllStudents.UseVisualStyleBackColor = true;
@@ -94,24 +94,24 @@
             this.stuTable.AllowUserToAddRows = false;
             this.stuTable.AllowUserToDeleteRows = false;
             this.stuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stuTable.Location = new System.Drawing.Point(28, 129);
-            this.stuTable.Margin = new System.Windows.Forms.Padding(4);
+            this.stuTable.Location = new System.Drawing.Point(14, 67);
+            this.stuTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.stuTable.MultiSelect = false;
             this.stuTable.Name = "stuTable";
             this.stuTable.RowHeadersWidth = 82;
             this.stuTable.RowTemplate.Height = 33;
             this.stuTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.stuTable.Size = new System.Drawing.Size(1348, 612);
+            this.stuTable.Size = new System.Drawing.Size(674, 318);
             this.stuTable.TabIndex = 1;
             this.stuTable.SelectionChanged += new System.EventHandler(this.stuTable_SelectionChanged);
             // 
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(668, 769);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreate.Location = new System.Drawing.Point(334, 400);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(224, 48);
+            this.btnCreate.Size = new System.Drawing.Size(112, 25);
             this.btnCreate.TabIndex = 0;
             this.btnCreate.Text = "Create ";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -120,10 +120,10 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(1152, 769);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(576, 400);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(224, 48);
+            this.btnDelete.Size = new System.Drawing.Size(112, 25);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Text = "Delete ";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -132,10 +132,10 @@
             // btngetStudent
             // 
             this.btngetStudent.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btngetStudent.Location = new System.Drawing.Point(296, 52);
-            this.btngetStudent.Margin = new System.Windows.Forms.Padding(4);
+            this.btngetStudent.Location = new System.Drawing.Point(148, 27);
+            this.btngetStudent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btngetStudent.Name = "btngetStudent";
-            this.btngetStudent.Size = new System.Drawing.Size(236, 48);
+            this.btngetStudent.Size = new System.Drawing.Size(118, 25);
             this.btngetStudent.TabIndex = 0;
             this.btngetStudent.Text = "Get Student";
             this.btngetStudent.UseVisualStyleBackColor = true;
@@ -144,10 +144,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(916, 769);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdate.Location = new System.Drawing.Point(458, 400);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(224, 48);
+            this.btnUpdate.Size = new System.Drawing.Size(112, 25);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -156,10 +156,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(872, 52);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(436, 27);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(236, 48);
+            this.button1.Size = new System.Drawing.Size(118, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "Data Insert";
             this.button1.UseVisualStyleBackColor = true;
@@ -168,10 +168,10 @@
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(418, 769);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearch.Location = new System.Drawing.Point(209, 400);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(224, 48);
+            this.btnSearch.Size = new System.Drawing.Size(112, 25);
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -180,12 +180,12 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(1741, 521);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmit.Location = new System.Drawing.Point(870, 271);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(148, 48);
+            this.btnSubmit.Size = new System.Drawing.Size(75, 26);
             this.btnSubmit.TabIndex = 30;
-            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.Text = "Update";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
@@ -200,20 +200,18 @@
             "11A",
             "11B",
             "11C"});
-            this.comGrade.Location = new System.Drawing.Point(1581, 315);
-            this.comGrade.Margin = new System.Windows.Forms.Padding(6);
+            this.comGrade.Location = new System.Drawing.Point(790, 164);
             this.comGrade.Name = "comGrade";
-            this.comGrade.Size = new System.Drawing.Size(308, 45);
+            this.comGrade.Size = new System.Drawing.Size(156, 27);
             this.comGrade.TabIndex = 28;
             // 
             // radioFemale
             // 
             this.radioFemale.AutoSize = true;
             this.radioFemale.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioFemale.Location = new System.Drawing.Point(1737, 256);
-            this.radioFemale.Margin = new System.Windows.Forms.Padding(6);
+            this.radioFemale.Location = new System.Drawing.Point(868, 133);
             this.radioFemale.Name = "radioFemale";
-            this.radioFemale.Size = new System.Drawing.Size(153, 41);
+            this.radioFemale.Size = new System.Drawing.Size(79, 23);
             this.radioFemale.TabIndex = 27;
             this.radioFemale.TabStop = true;
             this.radioFemale.Text = "Female";
@@ -223,10 +221,9 @@
             // 
             this.radioMale.AutoSize = true;
             this.radioMale.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioMale.Location = new System.Drawing.Point(1581, 254);
-            this.radioMale.Margin = new System.Windows.Forms.Padding(6);
+            this.radioMale.Location = new System.Drawing.Point(790, 132);
             this.radioMale.Name = "radioMale";
-            this.radioMale.Size = new System.Drawing.Size(119, 41);
+            this.radioMale.Size = new System.Drawing.Size(63, 23);
             this.radioMale.TabIndex = 26;
             this.radioMale.TabStop = true;
             this.radioMale.Text = "Male";
@@ -235,39 +232,35 @@
             // txtAddress
             // 
             this.txtAddress.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.Location = new System.Drawing.Point(1581, 388);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(6);
+            this.txtAddress.Location = new System.Drawing.Point(790, 202);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(308, 104);
+            this.txtAddress.Size = new System.Drawing.Size(156, 56);
             this.txtAddress.TabIndex = 29;
             // 
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.Location = new System.Drawing.Point(1581, 192);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtLastName.Location = new System.Drawing.Point(790, 100);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(308, 45);
+            this.txtLastName.Size = new System.Drawing.Size(156, 26);
             this.txtLastName.TabIndex = 25;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.Location = new System.Drawing.Point(1581, 131);
-            this.txtFirstName.Margin = new System.Windows.Forms.Padding(6);
+            this.txtFirstName.Location = new System.Drawing.Point(790, 68);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(308, 45);
+            this.txtFirstName.Size = new System.Drawing.Size(156, 26);
             this.txtFirstName.TabIndex = 24;
             // 
             // Address
             // 
             this.Address.AutoSize = true;
             this.Address.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Address.Location = new System.Drawing.Point(1409, 413);
-            this.Address.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Address.Location = new System.Drawing.Point(704, 215);
             this.Address.Name = "Address";
-            this.Address.Size = new System.Drawing.Size(138, 37);
+            this.Address.Size = new System.Drawing.Size(68, 19);
             this.Address.TabIndex = 20;
             this.Address.Text = "Address";
             // 
@@ -275,10 +268,9 @@
             // 
             this.Gender.AutoSize = true;
             this.Gender.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gender.Location = new System.Drawing.Point(1401, 256);
-            this.Gender.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.Gender.Location = new System.Drawing.Point(700, 133);
             this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(125, 37);
+            this.Gender.Size = new System.Drawing.Size(62, 19);
             this.Gender.TabIndex = 21;
             this.Gender.Text = "Gender";
             // 
@@ -286,10 +278,9 @@
             // 
             this.LastName.AutoSize = true;
             this.LastName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.Location = new System.Drawing.Point(1401, 192);
-            this.LastName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.LastName.Location = new System.Drawing.Point(700, 100);
             this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(163, 37);
+            this.LastName.Size = new System.Drawing.Size(82, 19);
             this.LastName.TabIndex = 22;
             this.LastName.Text = "LastName";
             // 
@@ -297,18 +288,17 @@
             // 
             this.FirstName.AutoSize = true;
             this.FirstName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName.Location = new System.Drawing.Point(1401, 137);
-            this.FirstName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.FirstName.Location = new System.Drawing.Point(700, 71);
             this.FirstName.Name = "FirstName";
-            this.FirstName.Size = new System.Drawing.Size(171, 37);
+            this.FirstName.Size = new System.Drawing.Size(85, 19);
             this.FirstName.TabIndex = 23;
             this.FirstName.Text = "FirstName";
             // 
             // DBConnection
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2447, 840);
+            this.ClientSize = new System.Drawing.Size(962, 437);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.comGrade);
             this.Controls.Add(this.radioFemale);
@@ -328,9 +318,9 @@
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnGetAllStudents);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn);
+            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnTest);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DBConnection";
             this.Text = "DBConnection";
             ((System.ComponentModel.ISupportInitialize)(this.stuTable)).EndInit();
@@ -342,7 +332,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnGetAllStudents;
         private System.Windows.Forms.DataGridView stuTable;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace WindowsFormsApp1
 {
     public partial class View : Form
     {
-        
+        string id;
         public View()
         {
             InitializeComponent();
@@ -126,7 +127,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please select a row to delete.");
             }
-            this.Close();
+            
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -153,6 +154,151 @@ namespace WindowsFormsApp1
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 stuTable.DataSource = dt;
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection ! ");
+            }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            this.id = null;
+            txtFirstName.Text = null;
+            txtLastName.Text = null;
+            txtAddress.Text = null;
+            comGrade.SelectedIndex = -1;
+            radioMale.Checked = false;
+
+            btnSubmit.Text = "Save";
+        }
+
+        private void stuTable_SelectionChanged(object sender, EventArgs e)
+        {
+            btnSubmit.Text = "Update";
+            this.id = stuTable.CurrentRow.Cells["id"].Value.ToString();
+            string first_name = stuTable.CurrentRow.Cells["first_name"].Value.ToString();
+            string last_name = stuTable.CurrentRow.Cells["last_name"].Value.ToString();
+            string gender = stuTable.CurrentRow.Cells["gender"].Value.ToString();
+            string grade = stuTable.CurrentRow.Cells["grade"].Value.ToString();
+            string address = stuTable.CurrentRow.Cells["address"].Value.ToString();
+
+
+
+            txtFirstName.Text = first_name;
+            txtLastName.Text = last_name;
+            txtAddress.Text = address;
+            comGrade.Text = grade;
+            if (gender == "Male")
+            {
+                radioMale.Checked = true;
+            }
+            else
+            {
+                radioFemale.Checked = true;
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (btnSubmit.Text == "Save")
+            {
+
+                string connetionString = null;
+                string gender = null;
+                if (radioMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (radioFemale.Checked)
+                {
+                    gender = "Female";
+                }
+
+                SqlConnection connection;
+                SqlCommand command;
+                connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
+                string sql = "INSERT INTO students (first_name, last_name, grade,address, gender) VALUES('" + txtFirstName.Text + "', '" + txtLastName.Text + "','" + comGrade.Text + "','" + txtAddress.Text + "','" + gender + "');";
+                connection = new SqlConnection(connetionString);
+                try
+                {
+                    connection.Open();
+                    command = new SqlCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    connection.Close();
+                    MessageBox.Show(" Save Successfully", "Info", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Can not open connection ! ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                string connetionString = null;
+                string gender = null;
+                if (radioMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (radioFemale.Checked)
+                {
+                    gender = "Female";
+                }
+
+                SqlConnection connection;
+                SqlCommand command;
+                string sql = null;
+                connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
+                sql = "UPDATE [students] SET [first_name] = '" + txtFirstName.Text + "', [last_name] = '" + txtLastName.Text + "',[gender]='" + gender + "', [grade]='" + comGrade.Text + "',[address]='" + txtAddress.Text + "' WHERE [id]='" + this.id + "';";
+                connection = new SqlConnection(connetionString);
+                try
+                {
+                    connection.Open();
+                    command = new SqlCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    connection.Close();
+                    MessageBox.Show(" Update Successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Can not open connection ! ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btnGetAllStudents_Click(object sender, EventArgs e)
+        {
+            string connetionString = null;
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = null;
+            connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
+            sql = "Select * from students";
+            connection = new SqlConnection(connetionString);
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                SqlDataReader sqlReader = command.ExecuteReader();
+
+
+                DataTable dt = new DataTable();
+
+                dt.Load(sqlReader);
+
+                stuTable.DataSource = dt;
+
+                sqlReader.Close();
+                command.Dispose();
                 connection.Close();
             }
             catch (Exception ex)

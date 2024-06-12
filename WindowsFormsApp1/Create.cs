@@ -62,5 +62,10 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void Address_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

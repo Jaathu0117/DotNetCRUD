@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -152,7 +154,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Please select a row to delete.");
             }
-            this.Close();
+            
         }
 
         private void btngetStudent_Click(object sender, EventArgs e)
@@ -223,6 +225,8 @@ namespace WindowsFormsApp1
 
         private void stuTable_SelectionChanged(object sender, EventArgs e)
         {
+
+            btnSubmit.Text = "Update";
             this.id = stuTable.CurrentRow.Cells["id"].Value.ToString();
             string first_name = stuTable.CurrentRow.Cells["first_name"].Value.ToString();
             string last_name = stuTable.CurrentRow.Cells["last_name"].Value.ToString();
@@ -248,40 +252,95 @@ namespace WindowsFormsApp1
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string connetionString = null;
-            string gender = null;
-            if (radioMale.Checked)
+            if (btnSubmit.Text=="Save")
             {
-                gender = "Male";
-            }
-            else if (radioFemale.Checked)
-            {
-                gender = "Female";
-            }
+                
+                string connetionString = null;
+                string gender = null;
+                if (radioMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (radioFemale.Checked)
+                {
+                    gender = "Female";
+                }
+                
+                SqlConnection connection;
+                SqlCommand command;
+                connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
+                string sql = "INSERT INTO students (first_name, last_name, grade,address, gender) VALUES('" + txtFirstName.Text + "', '" + txtLastName.Text + "','" + comGrade.Text + "','" + txtAddress.Text + "','" + gender + "');";
+                connection = new SqlConnection(connetionString);
+                try
+                {
+                    connection.Open();
+                    command = new SqlCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    connection.Close();
+                    MessageBox.Show(" Save Sucuessfully", "Info", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
 
-            SqlConnection connection;
-            SqlCommand command;
-            string sql = null;
-            connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
-            //sql = "INSERT INTO [students] ([first_name], [last_name], [gender], [address], [grade]) VALUES('txtFirstName.Text','txtLastName.Text', '', 'cmdGender', '"+txtAddress.Text+"')";
-            sql = "UPDATE INTO students (first_name, last_name, grade,address, gender) VALUES('" + txtFirstName.Text + "', '" + txtLastName.Text + "','" + comGrade.Text + "','" + txtAddress.Text + "','" + gender + "')WHERE[id]'"+this.id+"'";
-            connection = new SqlConnection(connetionString);
-            try
-            {
-                connection.Open();
-                command = new SqlCommand(sql, connection);
-                command.ExecuteNonQuery();
-                command.Dispose();
-                connection.Close();
-                MessageBox.Show(" Save Sucuessfully", "Info", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+                    MessageBox.Show("Can not open connection ! ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
-            catch (Exception ex)
+            else 
             {
+                string connetionString = null;
+                string gender = null;
+                if (radioMale.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (radioFemale.Checked)
+                {
+                    gender = "Female";
+                }
 
-                MessageBox.Show("Can not open connection ! ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SqlConnection connection;
+                SqlCommand command;
+                string sql = null;
+                connetionString = "Server =DESKTOP-8MI6B22; Database =CsharpDp; Trusted_Connection = True";
+                sql = "UPDATE [students] SET [first_name] = '" + txtFirstName.Text + "', [last_name] = '" + txtLastName.Text + "',[gender]='" + gender + "', [grade]='" + comGrade.Text + "',[address]='" + txtAddress.Text + "' WHERE [id]='" + this.id + "';";
+                connection = new SqlConnection(connetionString);
+                try
+                {
+                    connection.Open();
+                    command = new SqlCommand(sql, connection);
+                    command.ExecuteNonQuery();
+                    command.Dispose();
+                    connection.Close();
+                    MessageBox.Show(" Save Sucuessfully", "Info", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Can not open connection ! ", "Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             
+            
+            
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            this.id=null;
+            txtFirstName.Text = null;
+            txtLastName.Text = null;
+            txtAddress.Text = null;
+            comGrade.SelectedIndex = -1;
+            radioMale.Checked = false;
+
+            btnSubmit.Text = "Save";
+
+
         }
     }
     
